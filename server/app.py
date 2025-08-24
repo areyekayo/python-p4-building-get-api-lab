@@ -51,10 +51,11 @@ def baked_goods_by_price():
 @app.route('/baked_goods/most_expensive')
 def most_expensive_baked_good():
 
-    baked_good = BakedGood.query.order_by(BakedGood.price.desc()).first().to_dict()
+    baked_good = BakedGood.query.order_by(BakedGood.price.desc()).first()
+    baked_good_dict = baked_good.to_dict()
 
     response = make_response(
-        baked_good,
+        jsonify(baked_good_dict),
         200
     )
     return response
