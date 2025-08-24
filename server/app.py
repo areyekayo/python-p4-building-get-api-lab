@@ -55,7 +55,7 @@ def most_expensive_baked_good():
     baked_good_dict = baked_good.to_dict()
 
     response = make_response(
-        jsonify(baked_good_dict),
+        baked_good_dict,
         200
     )
     return response
